@@ -13,8 +13,9 @@ module.exports = function isPrimitive(value) {
     case "string":
     case "number":
     case "boolean":
+    case "symbol":
       return true;
     }
-
+    
   return value == null;
 };
