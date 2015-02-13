@@ -1,7 +1,7 @@
 /*!
  * is-primitive <https://github.com/jonschlinkert/is-primitive>
  *
- * Copyright (c) 2014 Jon Schlinkert, contributors.
+ * Copyright (c) 2014-2015 Jon Schlinkert.
  * Licensed under the MIT License
  */
 
@@ -16,6 +16,6 @@ module.exports = function isPrimitive(value) {
     case "symbol":
       return true;
     }
-    
+
   return value == null;
 };
