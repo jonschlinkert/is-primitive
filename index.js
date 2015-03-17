@@ -7,15 +7,7 @@
 
 'use strict';
 
-// see http://jsperf.com/testing-value-is-primitive/5
+// see http://jsperf.com/testing-value-is-primitive/7
 module.exports = function isPrimitive(value) {
-  switch (typeof value) {
-    case "string":
-    case "number":
-    case "boolean":
-    case "symbol":
-      return true;
-    }
-
-  return value == null;
+  return value == null || (typeof value !== 'function' && typeof value !== 'object');
 };
