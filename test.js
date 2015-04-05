@@ -20,6 +20,7 @@ describe('isPrimitive', function () {
     isPrimitive(false).should.be.true;
     isPrimitive(NaN).should.be.true;
     isPrimitive(Infinity).should.be.true;
+    if (typeof Symbol != "undefined") isPrimitive(Symbol()).should.be.true
   });
 
   it('should return false when not primitive value', function () {
