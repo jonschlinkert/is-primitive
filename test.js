@@ -10,8 +10,8 @@
 var should = require('should');
 var isPrimitive = require('./');
 
-describe('isPrimitive', function () {
-  it('should return true when primitive value', function () {
+describe('isPrimitive', function() {
+  it('should return true when primitive value', function() {
     isPrimitive(null).should.be.true;
     isPrimitive(undefined).should.be.true;
     isPrimitive(1).should.be.true;
@@ -23,12 +23,12 @@ describe('isPrimitive', function () {
     if (typeof Symbol != "undefined") isPrimitive(Symbol()).should.be.true
   });
 
-  it('should return false when not primitive value', function () {
+  it('should return false when not primitive value', function() {
     isPrimitive({}).should.be.false;
     isPrimitive([]).should.be.false;
     isPrimitive(/./).should.be.false;
-    isPrimitive(function () {}).should.be.false;
-    isPrimitive(new function () {}).should.be.false;
+    isPrimitive(function() {}).should.be.false;
+    isPrimitive(new function() {}).should.be.false;
     isPrimitive(new Number).should.be.false;
     isPrimitive(new String).should.be.false;
     isPrimitive(new Boolean).should.be.false;
