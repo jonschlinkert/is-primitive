@@ -7,32 +7,34 @@
 
 'use strict';
 
-var should = require('should');
+var assert = require('assert');
 var isPrimitive = require('./');
 
 describe('isPrimitive', function() {
   it('should return true when primitive value', function() {
-    isPrimitive(null).should.be.true;
-    isPrimitive(undefined).should.be.true;
-    isPrimitive(1).should.be.true;
-    isPrimitive('foo').should.be.true;
-    isPrimitive(true).should.be.true;
-    isPrimitive(false).should.be.true;
-    isPrimitive(NaN).should.be.true;
-    isPrimitive(Infinity).should.be.true;
-    if (typeof Symbol != "undefined") isPrimitive(Symbol()).should.be.true
+    assert(isPrimitive());
+    assert(isPrimitive(undefined));
+    assert(isPrimitive(null));
+    assert(isPrimitive(0));
+    assert(isPrimitive(1));
+    assert(isPrimitive('foo'));
+    assert(isPrimitive(true));
+    assert(isPrimitive(false));
+    assert(isPrimitive(NaN));
+    assert(isPrimitive(Infinity));
+    if (typeof Symbol !== "undefined") {
+      assert(isPrimitive(Symbol()))
+    }
   });
 
   it('should return false when not primitive value', function() {
-    isPrimitive({}).should.be.false;
-    isPrimitive([]).should.be.false;
-    isPrimitive(/./).should.be.false;
-    isPrimitive(function() {}).should.be.false;
-    isPrimitive(new function() {}).should.be.false;
-    isPrimitive(new Number).should.be.false;
-    isPrimitive(new String).should.be.false;
-    isPrimitive(new Boolean).should.be.false;
-    isPrimitive(new Date).should.be.false;
-    isPrimitive(new Error).should.be.false;
+    assert(!isPrimitive({}));
+    assert(!isPrimitive([]));
+    assert(!isPrimitive(/./));
+    assert(!isPrimitive(function() {}));
+    assert(!isPrimitive(new Date()));
+    assert(!isPrimitive(new Number()));
+    assert(!isPrimitive(new String()));
+    assert(!isPrimitive(new Boolean()));
   });
 });
