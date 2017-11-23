@@ -27,8 +27,7 @@
   },
   "devDependencies": {
     "gulp-format-md": "^1.0.0",
-    "mocha": "*",
-    "should": "^4.0.4"
+    "mocha": "^3.5.3"
   },
   "keywords": [
     "boolean",
@@ -51,6 +50,13 @@
     "plugins": [
       "gulp-format-md"
     ],
+    "related": {
+      "list": [
+        "kind-of",
+        "is-number",
+        "is-plain-object"
+      ]
+    },
     "lint": {
       "reflinks": true
     }
