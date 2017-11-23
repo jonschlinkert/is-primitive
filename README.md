@@ -27,25 +27,33 @@ The [Mozilla docs for "Primitive values"](https://developer.mozilla.org/en-US/do
 
 ```js
 var isPrimitive = require('is-primitive');
-isPrimitive('abc');
+```
+
+## true
+
+All of the following return `true`:
+
+```js
+console.log(isPrimitive(false));
+console.log(isPrimitive(true));
+console.log(isPrimitive(null));
+console.log(isPrimitive());
+console.log(isPrimitive(42));
+console.log(isPrimitive('abc'));
+console.log(isPrimitive(Symbol()));
 //=> true
+```
 
-isPrimitive(42);
-//=> true
+## false
 
-isPrimitive(false);
-//=> true
+Everything else returns `false`:
 
-isPrimitive(true);
-//=> true
-
-isPrimitive({});
-//=> false
-
-isPrimitive([]);
-//=> false
-
-isPrimitive(function(){});
+```js
+console.log(isPrimitive({}));
+console.log(isPrimitive([]));
+console.log(isPrimitive(function(){}));
+console.log(isPrimitive(new Date()));
+// et cetera...
 //=> false
 ```
 
@@ -81,6 +89,14 @@ $ npm install -g verbose/verb#dev verb-generate-readme && verb
 ```
 
 </details>
+
+### Related projects
+
+You might also be interested in these projects:
+
+* [is-number](https://www.npmjs.com/package/is-number): Returns true if the value is a number. comprehensive tests. | [homepage](https://github.com/jonschlinkert/is-number "Returns true if the value is a number. comprehensive tests.")
+* [is-plain-object](https://www.npmjs.com/package/is-plain-object): Returns true if an object was created by the `Object` constructor. | [homepage](https://github.com/jonschlinkert/is-plain-object "Returns true if an object was created by the `Object` constructor.")
+* [kind-of](https://www.npmjs.com/package/kind-of): Get the native type of a value. | [homepage](https://github.com/jonschlinkert/kind-of "Get the native type of a value.")
 
 ### Contributors
 
