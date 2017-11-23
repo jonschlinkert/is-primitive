@@ -1,13 +1,22 @@
 /*!
- * is-primitive <git://github.com/jonschlinkert/is-primitive.git>
+ * is-primitive <https://github.com/jonschlinkert/is-primitive>
  *
  * Copyright (c) 2014-2017, Jon Schlinkert.
- * Released under the [object Object] License.
+ * Released under the MIT License.
  */
 
 'use strict';
 
-// see http://jsperf.com/testing-value-is-primitive/7
-module.exports = function isPrimitive(value) {
-  return value === null || (typeof value !== 'function' && typeof value !== 'object');
+module.exports = function isPrimitive(val) {
+  switch (typeof val) {
+    case 'boolean':
+    case 'number':
+    case 'string':
+    case 'symbol':
+    case 'undefined':
+      return true;
+    default: {
+      return val === null;
+    }
+  }
 };
