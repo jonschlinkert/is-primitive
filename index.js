@@ -7,7 +7,7 @@
 
 'use strict';
 
-const types = {
+var types = {
   boolean: true,
   number: true,
   string: true,
