@@ -7,16 +7,14 @@
 
 'use strict';
 
+var types = {
+  boolean: true,
+  number: true,
+  string: true,
+  symbol: true,
+  undefined: true,
+};
+
 module.exports = function isPrimitive(val) {
-  switch (typeof val) {
-    case 'boolean':
-    case 'number':
-    case 'string':
-    case 'symbol':
-    case 'undefined':
-      return true;
-    default: {
-      return val === null;
-    }
-  }
+  return  types[typeof val] ? true : val === null;
 };
