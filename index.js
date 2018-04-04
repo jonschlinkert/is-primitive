@@ -8,15 +8,12 @@
 'use strict';
 
 module.exports = function isPrimitive(val) {
-  switch (typeof val) {
-    case 'boolean':
-    case 'number':
-    case 'string':
-    case 'symbol':
-    case 'undefined':
-      return true;
-    default: {
-      return val === null;
-    }
+  if (val === null
+    || typeof val === 'boolean'
+    || typeof val === 'number'
+    || typeof val === 'string'
+    || typeof val === 'symbol'
+    || typeof val === 'undefined') {
+    return true;
   }
 };

@@ -21,6 +21,7 @@ const values = [
 ];
 
 suite
+  .add('if', () => values.map(v => isPrimitiveIf(v)))
   .add('switch', () => values.map(v => isPrimitiveSwitch(v)))
   .add('object', () => values.map(v => isPrimitiveObjectLookup(v)))
   .add('object - in', () => values.map(v => isPrimitiveObjectIn(v)))
@@ -76,10 +77,23 @@ function isPrimitiveSwitch(val) {
   }
 }
 
-// switch x 3,104,738 ops/sec ±0.61% (90 runs sampled)
-// object x 1,947,977 ops/sec ±0.55% (92 runs sampled)
-// object - in x 2,160,225 ops/sec ±0.63% (89 runs sampled)
-// object - own x 2,376,049 ops/sec ±0.59% (88 runs sampled)
-// array x 1,441,834 ops/sec ±0.54% (84 runs sampled)
-// equals x 2,983,937 ops/sec ±0.59% (87 runs sampled)
-// Fastest is switch
+function isPrimitiveIf(val) {
+  if (val === null
+    || typeof val === 'boolean'
+    || typeof val === 'number'
+    || typeof val === 'string'
+    || typeof val === 'symbol'
+    || typeof val === 'undefined') {
+    return true;
+  }
+  return false;
+}
+
+// if x 2,592,812 ops/sec ±0.79% (85 runs sampled)
+// switch x 2,490,420 ops/sec ±0.75% (83 runs sampled)
+// object x 1,474,088 ops/sec ±0.89% (83 runs sampled)
+// object - in x 1,658,439 ops/sec ±1.65% (83 runs sampled)
+// object - own x 1,823,545 ops/sec ±1.13% (84 runs sampled)
+// array x 1,156,344 ops/sec ±0.71% (86 runs sampled)
+// equals x 2,275,954 ops/sec ±0.74% (86 runs sampled)
+// Fastest is if
