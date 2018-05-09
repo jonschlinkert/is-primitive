@@ -26,6 +26,9 @@ describe('isPrimitive', function() {
     if (typeof Symbol !== "undefined") {
       assert(isPrimitive(Symbol()))
     }
+    if (typeof BigInt !== "undefined") {
+      assert(isPrimitive(BigInt(0)))
+    }
   });
 
   it('should return false when not primitive value', function() {

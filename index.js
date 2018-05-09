@@ -13,6 +13,7 @@ module.exports = function isPrimitive(val) {
     case 'number':
     case 'string':
     case 'symbol':
+    case 'bigint':
     case 'undefined':
       return true;
     default: {
