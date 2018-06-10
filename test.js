@@ -1,15 +1,15 @@
 /*!
  * is-primitive <https://github.com/jonschlinkert/is-primitive>
  *
- * Copyright (c) 2014-2015, Jon Schlinkert.
+ * Copyright (c) 2014-2019, Jon Schlinkert.
  * Licensed under the MIT License.
  */
 
 'use strict';
 
 require('mocha');
-var assert = require('assert');
-var isPrimitive = require('./');
+const assert = require('assert');
+const isPrimitive = require('./');
 
 describe('isPrimitive', function() {
   it('should return true when primitive value', function() {
@@ -23,8 +23,11 @@ describe('isPrimitive', function() {
     assert(isPrimitive(false));
     assert(isPrimitive(NaN));
     assert(isPrimitive(Infinity));
-    if (typeof Symbol !== "undefined") {
-      assert(isPrimitive(Symbol()))
+    if (typeof Symbol !== 'undefined') {
+      assert(isPrimitive(Symbol()));
+    }
+    if (typeof BigInt !== 'undefined') {
+      assert(isPrimitive(BigInt(0)));
     }
   });
 
