@@ -53,9 +53,9 @@
     ],
     "related": {
       "list": [
-        "kind-of",
         "is-number",
-        "is-plain-object"
+        "is-plain-object",
+        "kind-of"
       ]
     },
     "lint": {
