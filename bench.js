@@ -21,7 +21,10 @@ const values = [
 ];
 
 suite
-  .add('current', () => values.forEach(v => current(v)))
+  .add('twoTypeof (current)', () => values.forEach(v => twoTypeof(v)))
+  .add('oneTypeof', () => values.forEach(v => oneTypeof(v)))
+  .add('oneLiner', () => values.forEach(v => oneLiner(v)))
+  .add('twoLiner', () => values.forEach(v => twoLiner(v)))
   .add('if', () => values.forEach(v => isPrimitiveIf(v)))
   .add('negation', () => values.forEach(v => negation(v)))
   .add('equals', () => values.forEach(v => isPrimitiveEquals(v)))
@@ -38,11 +41,28 @@ suite
   })
   .run();
 
-function current(val) {
+function oneTypeof(val) {
+  const type = typeof val
+  if (type === 'object') {
+    return val === null;
+  }
+  return type !== 'function';
+}
+
+function twoTypeof(val) {
   if (typeof val === 'object') {
     return val === null;
   }
   return typeof val !== 'function';
+}
+
+function oneLiner(val) {
+  return typeof val === 'object' ? val === null : typeof val !== 'function'
+}
+
+function twoLiner(val) {
+  const type = typeof val
+  return type === 'object' ? val === null : type !== 'function'
 }
 
 function negation(val) {
