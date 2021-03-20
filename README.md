@@ -14,7 +14,7 @@ $ npm install --save is-primitive
 
 ## Primitive values
 
-The [Mozilla docs for "Primitive values"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values) defines specifies six data types that are primitives:
+The [Mozilla docs for "Primitive values"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Primitive_values) defines specifies seven data types that are primitives:
 
 * `Boolean`
 * `Null`
@@ -22,6 +22,7 @@ The [Mozilla docs for "Primitive values"](https://developer.mozilla.org/en-US/do
 * `Number`
 * `String`
 * `Symbol` (new in ECMAScript 6)
+* `BigInt` (new in ECMAScript 2020)
 
 ## Usage
 
